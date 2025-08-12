@@ -1,0 +1,28 @@
+module(
+    name = "jsonnet_pipeline_example",
+    repo_name = "jsonnet_pipeline_example",
+)
+
+# ========================================================================
+# Bazel modules
+# ========================================================================
+bazel_dep(name = "rules_jsonnet", version = "0.7.1")
+bazel_dep(name = "jq.bzl", version = "0.1.0")
+bazel_dep(name = "rules_helm", version = "0.3.0")
+
+bazel_dep(name = "rules_oci", version = "2.2.0")
+bazel_dep(name = "bazel_skylib", version = "1.8.1")
+
+
+git_override(
+    module_name = "rules_helm",
+    commit = "8e363725dab7ad48eacce3d13bbeadec59fe57a8",
+    remote = "https://github.com/ohno-cloud/rules_helm",
+)
+
+helm_deps = use_extension("@rules_helm//:extensions.bzl", "helm_deps")
+helm_deps.lockfile(lockfile = "//:Chart.lock.json")
+use_repo(
+    helm_deps,
+    "io_jetstack_charts_cert_manager",
+)

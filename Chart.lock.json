@@ -1,0 +1,12 @@
+{
+  "repositories": {
+    "io_jetstack_charts_cert_manager": {
+      "digest": "da7ecd825266a9467efaf428aaa0ca6e854031b5089468016c84fb0537d6f2ca",
+      "urls": [
+        "https://charts.jetstack.io/charts/cert-manager-v1.18.1.tgz"
+      ],
+      "chart": "cert-manager",
+      "version": "v1.18.1"
+    }
+  }
+}

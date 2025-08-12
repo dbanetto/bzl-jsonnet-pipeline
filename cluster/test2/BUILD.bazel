@@ -1,0 +1,22 @@
+load("@rules_jsonnet//jsonnet:jsonnet.bzl", "jsonnet_to_json")
+load("//:addons.bzl", "render_addons")
+load("//:namespaces.bzl", "namespaces")
+
+ADDONS = {
+    # List of enabled addons for the cluster
+    "cert-manager": { },
+}
+
+render_addons(
+    name = "local2",
+    addons = ADDONS,
+    applications = namespaces.as_applications(),
+    config = ":config",
+)
+
+jsonnet_to_json(
+    name = "config",
+    src = "config.jsonnet",
+    outs = ["config.json"],
+)
+

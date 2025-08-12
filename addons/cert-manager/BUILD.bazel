@@ -1,0 +1,4 @@
+exports_files(srcs=[
+    "patches.libsonnet",
+    "values.libsonnet",
+], visibility=["//visibility:public"])

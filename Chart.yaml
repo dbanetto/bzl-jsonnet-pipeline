@@ -1,0 +1,9 @@
+apiVersion: v2
+name: thirdparty
+type: application
+version: 0.1.0
+dependencies:
+  # Automate end-certificate management
+  - name: "cert-manager"
+    version: "v1.18.1"
+    repository: "https://charts.jetstack.io"

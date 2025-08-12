@@ -1,0 +1,8 @@
+load("@rules_jsonnet//jsonnet:jsonnet.bzl", "jsonnet_library", "jsonnet_to_json_test")
+
+exports_files(
+    srcs = glob(
+        include = ["*.jsonnet"],
+    ),
+    visibility = ["//visibility:public"],
+)
